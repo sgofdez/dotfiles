@@ -6,4 +6,9 @@ else
 fi
 
 # Install joe
-sudo apt-get install -y joe
+if ! command -v joe &> /dev/null; then
+    echo "Instalando joe..."
+    sudo apt-get update && sudo apt-get install -y joe
+else
+    echo "joe ya está instalado."
+fi
